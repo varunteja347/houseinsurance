@@ -1,0 +1,184 @@
+
+<app-surveyor-navbar>
+
+</app-surveyor-navbar>
+
+<div class="page-container">
+
+    <div class="header">
+
+        <h1>Pending Claims</h1>
+
+        <p>
+
+            Review customer claims and
+            generate survey reports.
+
+        </p>
+
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Claim Number</th>
+
+                    <th>Claim Type</th>
+
+                    <th>Amount</th>
+
+                    <th>Incident Date</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @for(claim of claims; track claim.id){
+
+                <tr>
+
+                    <td>{{claim.claimNumber}}</td>
+
+                    <td>{{claim.claimType}}</td>
+
+                    <td>₹{{claim.claimAmount}}</td>
+
+                    <td>{{claim.incidentDate}}</td>
+
+                    <td>
+
+                        <button
+                            class="review-btn"
+                            (click)="reviewClaim(claim)">
+
+                            Review Claim
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    @if(showReportForm){
+
+    <div class="report-card">
+
+        <h2>
+
+            Generate Survey Report
+
+        </h2>
+
+        <div class="form-group">
+
+            <label>
+
+                Damage Assessment
+
+            </label>
+
+            <textarea
+                rows="4"
+                [(ngModel)]="
+                report.damageAssessment">
+
+            </textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Estimated Loss Amount
+
+            </label>
+
+            <input
+                type="number"
+                [(ngModel)]="
+                report.estimatedLossAmount">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Surveyor Remarks
+
+            </label>
+
+            <textarea
+                rows="4"
+                [(ngModel)]="
+                report.remarks">
+
+            </textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Decision
+
+            </label>
+
+            <select
+                [(ngModel)]="
+                report.decision">
+
+                <option value="">
+
+                    Select Decision
+
+                </option>
+
+                <option value="Approve">
+
+                    Approve
+
+                </option>
+
+                <option value="Reject">
+
+                    Reject
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            class="submit-btn"
+            (click)="submitReport()">
+
+            Submit Report
+
+        </button>
+
+    </div>
+
+    }
+
+</div>

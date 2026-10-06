@@ -1,0 +1,121 @@
+<div class="container">
+
+  <h1>My Policies</h1>
+
+  <div class="summary-cards">
+
+    <div class="summary-card">
+
+      <h2>{{ activePolicies.length }}</h2>
+
+      <p>Active Policies</p>
+
+    </div>
+
+    <div class="summary-card">
+
+      <h2>{{ expiredPolicies.length }}</h2>
+
+      <p>Expired Policies</p>
+
+    </div>
+
+  </div>
+
+  <h2>Active Policies</h2>
+
+  @for(policy of activePolicies; track policy.id){
+
+  <div class="policy-card">
+
+    <h3>{{ policy.policyNumber }}</h3>
+
+    <p>
+      Plan: {{ policy.planType }}
+    </p>
+
+    <p>
+      Coverage Amount:
+      ₹{{ policy.coverageAmount }}
+    </p>
+
+    <p>
+      Premium Amount:
+      ₹{{ policy.premiumAmount }}
+    </p>
+
+    <p>
+      Start Date:
+      {{ policy.startDate | date:'dd-MMM-yyyy' }}
+    </p>
+
+    <p>
+      End Date:
+      {{ policy.endDate | date:'dd-MMM-yyyy' }}
+    </p>
+
+    <span class="active">
+
+      {{ policy.status }}
+
+    </span>
+
+    <button>
+      View Details
+    </button>
+
+    <button>
+      Create Claim
+    </button>
+
+  </div>
+
+  }
+
+  <h2>Expired Policies</h2>
+
+  @for(policy of expiredPolicies; track policy.id){
+
+  <div class="policy-card">
+
+    <h3>{{ policy.policyNumber }}</h3>
+
+    <p>
+      Plan: {{ policy.planType }}
+    </p>
+
+    <p>
+      Coverage Amount:
+      ₹{{ policy.coverageAmount }}
+    </p>
+
+    <p>
+      Premium Amount:
+      ₹{{ policy.premiumAmount }}
+    </p>
+
+    <p>
+      Start Date:
+      {{ policy.startDate | date:'dd-MMM-yyyy' }}
+    </p>
+
+    <p>
+      End Date:
+      {{ policy.endDate | date:'dd-MMM-yyyy' }}
+    </p>
+
+    <span class="expired">
+
+      {{ policy.status }}
+
+    </span>
+
+    <button>
+      View Details
+    </button>
+
+  </div>
+
+  }
+
+</div>

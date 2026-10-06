@@ -1,0 +1,120 @@
+<header class="navbar">
+
+    <nav class="nav-links">
+
+        <a routerLink="/admin-dashboard">Dashboard</a>
+
+       <a routerLink="/customers">
+    Customers</a>
+
+
+        <a routerLink="/surveyors">Surveyors</a>
+
+        <a routerLink="/Adminpolicies">Policies</a>
+
+        <a routerLink="/Adminclaims">Claims</a>
+
+        <a routerLink="/login">Logout</a>
+
+    </nav>
+</header>
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <h1>
+            Insurance Administration Dashboard
+        </h1>
+
+        <p>
+            Monitor customers, surveyors, policies and claims through a unified insurance management platform.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="summary-section">
+
+    <div class="summary-card">
+
+        <div class="card-icon">👥</div>
+
+        <h3>Total Customers</h3>
+
+        <h2>{{ totalCustomers }}</h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="card-icon">🧑‍💼</div>
+
+        <h3>Total Surveyors</h3>
+
+        <h2>{{ totalSurveyors }}</h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="card-icon">⏳</div>
+
+        <h3>Pending Surveyors</h3>
+
+        <h2>{{ pendingSurveyors }}</h2>
+
+    </div>
+
+</section>
+
+<section class="management-section">
+
+    <h2>Quick Management</h2>
+
+    <div class="management-grid">
+
+        <div class="management-card">
+
+            <h3>👥 Customers</h3>
+
+            <p>
+                View and manage customer records.
+            </p>
+
+        </div>
+
+        <div class="management-card">
+
+            <h3>🧑‍💼 Surveyors</h3>
+
+            <p>
+                Approve, reject and monitor surveyors.
+            </p>
+
+        </div>
+
+        <div class="management-card">
+
+            <h3>📋 Policies</h3>
+
+            <p>
+                Manage insurance plans and policies.
+            </p>
+
+        </div>
+
+        <div class="management-card">
+
+            <h3>⚠️ Claims</h3>
+
+            <p>
+                Review and process insurance claims.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>

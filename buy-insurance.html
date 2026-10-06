@@ -1,0 +1,425 @@
+<div class="property-container">
+
+    <!-- Progress Bar -->
+
+    <div class="progress-container">
+
+        <div class="progress-step"
+             [class.active]="currentStep >= 1">
+            1
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step"
+             [class.active]="currentStep >= 2">
+            2
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step"
+             [class.active]="currentStep >= 3">
+            3
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step"
+             [class.active]="currentStep >= 4">
+            4
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step"
+             [class.active]="currentStep >= 5">
+            5
+        </div>
+
+    </div>
+
+    <div class="form-card">
+
+        <!-- STEP 1 -->
+
+        <div *ngIf="currentStep === 1">
+
+            <h1 class="form-title">
+                What's Your Property Address?
+            </h1>
+
+            <div class="form-group">
+
+                <label>Address Line 1</label>
+
+                <input
+                    type="text"
+                    [(ngModel)]="property.addressLine1">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Address Line 2</label>
+
+                <input
+                    type="text"
+                    [(ngModel)]="property.addressLine2">
+
+            </div>
+
+            <div class="row-3">
+
+                <div class="form-group">
+
+                    <label>City</label>
+
+                    <input
+                        type="text"
+                        [(ngModel)]="property.city">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>State</label>
+
+                    <input
+                        type="text"
+                        [(ngModel)]="property.state">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Pincode</label>
+
+                    <input
+                        type="text"
+                        [(ngModel)]="property.pincode">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Ownership Type</label>
+
+                <select
+                    [(ngModel)]="property.ownershipType">
+
+                    <option value="">Select</option>
+                    <option>Owned</option>
+                    <option>Rented</option>
+                    <option>Leased</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Primary Use</label>
+
+                <select
+                    [(ngModel)]="property.primaryUse">
+
+                    <option value="">Select</option>
+                    <option>Residential</option>
+                    <option>Commercial</option>
+                    <option>Rental</option>
+
+                </select>
+
+            </div>
+
+            <div class="button-container">
+
+                <button
+                    class="next-btn"
+                    (click)="nextStep()">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div *ngIf="currentStep === 2">
+
+            <h1 class="form-title">
+                Property Information
+            </h1>
+
+            <div class="form-group">
+
+                <label>Property Type</label>
+
+                <input
+                    [(ngModel)]="property.propertyType">
+
+            </div>
+
+            <div class="row-3">
+
+                <div class="form-group">
+
+                    <label>Year Built</label>
+
+                    <input
+                        type="number"
+                        [(ngModel)]="property.yearBuilt">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Area In Sq Ft</label>
+
+                    <input
+                        type="number"
+                        [(ngModel)]="property.areaInSqFt">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Floors</label>
+
+                    <input
+                        type="number"
+                        [(ngModel)]="property.numberOfFloors">
+
+                </div>
+
+            </div>
+
+            <div class="row-3">
+
+                <div class="form-group">
+
+                    <label>Bedrooms</label>
+
+                    <input
+                        type="number"
+                        [(ngModel)]="property.bedrooms">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Bathrooms</label>
+
+                    <input
+                        type="number"
+                        [(ngModel)]="property.bathrooms">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Market Value</label>
+
+                    <input
+                        type="number"
+                        [(ngModel)]="property.marketValue">
+
+                </div>
+
+            </div>
+
+            <div class="button-container">
+
+                <button
+                    class="back-btn"
+                    (click)="previousStep()">
+
+                    ← Back
+
+                </button>
+
+                <button
+                    class="next-btn"
+                    (click)="nextStep()">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div *ngIf="currentStep === 3">
+
+            <h1 class="form-title">
+                Construction Details
+            </h1>
+
+            <div class="row-2">
+
+                <div class="form-group">
+
+                    <label>Construction Type</label>
+
+                    <input
+                        [(ngModel)]="property.constructionType">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Roof Type</label>
+
+                    <input
+                        [(ngModel)]="property.roofType">
+
+                </div>
+
+            </div>
+
+            <div class="button-container">
+
+                <button
+                    class="back-btn"
+                    (click)="previousStep()">
+
+                    ← Back
+
+                </button>
+
+                <button
+                    class="next-btn"
+                    (click)="nextStep()">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div *ngIf="currentStep === 4">
+
+            <h1 class="form-title">
+                Security Features
+            </h1>
+
+            <div class="security-container">
+
+                <div class="security-card">
+
+                    <h3>Fire Alarm</h3>
+
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="property.fireAlarmInstalled">
+
+                </div>
+
+                <div class="security-card">
+
+                    <h3>CCTV</h3>
+
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="property.cctvInstalled">
+
+                </div>
+
+                <div class="security-card">
+
+                    <h3>Security System</h3>
+
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="property.securitySystemInstalled">
+
+                </div>
+
+            </div>
+
+            <div class="button-container">
+
+                <button
+                    class="back-btn"
+                    (click)="previousStep()">
+
+                    ← Back
+
+                </button>
+
+                <button
+                    class="next-btn"
+                    (click)="nextStep()">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 5 -->
+
+        <div *ngIf="currentStep === 5">
+
+            <h1 class="form-title">
+                Previous Claims
+            </h1>
+
+            <div class="choice-container">
+
+                <div class="choice-card">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            [(ngModel)]="property.previousClaims">
+
+                        Previous Claims Exist
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="button-container">
+
+                <button
+                    class="back-btn"
+                    (click)="previousStep()">
+
+                    ← Back
+
+                </button>
+
+                <button
+                    class="submit-btn"
+                    (click)="submitProperty()">
+
+                    Submit Property
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

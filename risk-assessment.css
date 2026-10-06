@@ -1,0 +1,283 @@
+.container {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 1200px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card h1 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 30px;
+}
+
+.card h2 {
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.item label {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.item p {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.calculate-btn {
+  background: linear-gradient(
+    135deg,
+    #5b7cfa,
+    #8b5cf6
+  );
+
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.result-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.score-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #5b7cfa,
+    #8b5cf6
+  );
+
+  color: white;
+
+  margin: 20px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.plans-btn {
+  margin-top: 20px;
+
+  background: #14b8a6;
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.plans-section {
+  margin-top: 40px;
+}
+
+.plan-card {
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.plan-card h3 {
+  color: #5b7cfa;
+  margin-bottom: 15px;
+}
+
+.plan-card h4 {
+  margin-top: 15px;
+}
+
+.plan-card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.plan-card li {
+  margin-bottom: 8px;
+}
+
+.select-btn {
+  margin-top: 15px;
+
+  background: #5b7cfa;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 22px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.payment-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.selected-card {
+  background: #eef2ff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.payment-btn {
+  background: #f59e0b;
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.buy-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.buy-btn {
+  background: #22c55e;
+
+  color: white;
+
+  border: none;
+
+  padding: 15px 30px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+
+  .property-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+}
+.payment-form{
+
+  width:400px;
+
+  margin:auto;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+}
+
+.payment-form input{
+
+  padding:12px;
+
+  border:1px solid #d1d5db;
+
+  border-radius:8px;
+}
+
+.payment-btn{
+
+  background:#f59e0b;
+
+  color:white;
+
+  border:none;
+
+  padding:12px;
+
+  border-radius:8px;
+
+  cursor:pointer;
+}
+
+.buy-section{
+
+  margin-top:30px;
+
+  text-align:center;
+}
+
+.buy-btn{
+
+  background:#22c55e;
+
+  color:white;
+
+  border:none;
+
+  padding:14px 30px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+}

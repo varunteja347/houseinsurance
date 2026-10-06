@@ -1,0 +1,76 @@
+<div class="page-container">
+
+    <div class="page-header">
+
+        <h1>
+            Customer Management
+        </h1>
+
+        <p>
+            View all registered customers.
+        </p>
+
+    </div>
+
+    <div class="table-container">
+
+        <table class="customers-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>First Name</th>
+
+                    <th>Last Name</th>
+
+                    <th>Email</th>
+
+                    <th>Phone Number</th>
+
+                    <th>City</th>
+
+                    <th>State</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr
+                  *ngFor="let customer of customers">
+
+                    <td>
+                        {{customer.firstName}}
+                    </td>
+
+                    <td>
+                        {{customer.lastName}}
+                    </td>
+
+                    <td>
+                        {{customer.email}}
+                    </td>
+
+                    <td>
+                        {{customer.phoneNumber}}
+                    </td>
+
+                    <td>
+                        {{customer.city}}
+                    </td>
+
+                    <td>
+                        {{customer.state}}
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

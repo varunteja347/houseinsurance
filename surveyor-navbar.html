@@ -1,0 +1,45 @@
+<nav class="navbar">
+
+    <div class="logo">
+
+        <h2>Surveyor Portal</h2>
+
+    </div>
+
+    <div class="nav-links">
+
+        <a
+            routerLink="/surveyor-dashboard"
+            routerLinkActive="active-link">
+
+            Dashboard
+
+        </a>
+
+        <a
+            routerLink="/pending-claims"
+            routerLinkActive="active-link">
+
+            Pending Claims
+
+        </a>
+
+        <a
+            routerLink="/total-claims"
+            routerLinkActive="active-link">
+
+            Total Claims
+
+        </a>
+
+        <button
+            class="logout-btn"
+            (click)="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</nav>

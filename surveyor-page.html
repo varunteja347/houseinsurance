@@ -1,0 +1,110 @@
+<app-surveyor-navbar>
+
+</app-surveyor-navbar>
+
+<div class="dashboard-page">
+
+    <div class="header-section">
+
+        <h1>
+
+            Surveyor Dashboard
+
+        </h1>
+
+        <p>
+
+            Monitor and review customer claims.
+
+        </p>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="card pending-card">
+
+            <div class="card-number">
+
+                {{pendingClaims.length}}
+
+            </div>
+
+            <div class="card-title">
+
+                Pending Claims
+
+            </div>
+
+        </div>
+
+        <div class="card approved-card">
+
+            <div class="card-number">
+
+                {{approvedClaims.length}}
+
+            </div>
+
+            <div class="card-title">
+
+                Approved Claims
+
+            </div>
+
+        </div>
+
+        <div class="card rejected-card">
+
+            <div class="card-number">
+
+                {{rejectedClaims.length}}
+
+            </div>
+
+            <div class="card-title">
+
+                Rejected Claims
+
+            </div>
+
+        </div>
+
+        <div class="card total-card">
+
+            <div class="card-number">
+
+                {{claims.length}}
+
+            </div>
+
+            <div class="card-title">
+
+                Total Claims
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="welcome-card">
+
+        <h2>
+
+            Welcome Surveyor
+
+        </h2>
+
+        <p>
+
+            Review pending claims, inspect uploaded
+            evidence, generate survey reports and
+            approve or reject claims based on
+            assessment.
+
+        </p>
+
+    </div>
+
+</div>

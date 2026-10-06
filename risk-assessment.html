@@ -1,0 +1,223 @@
+<div class="container">
+
+  <div class="card">
+
+    <h1>Risk Assessment</h1>
+
+    <h2>Property Details</h2>
+
+    <div class="property-grid">
+
+      <div class="item">
+        <label>Address Line 1</label>
+        <p>{{ property.addressLine1 }}</p>
+      </div>
+
+      <div class="item">
+        <label>Address Line 2</label>
+        <p>{{ property.addressLine2 }}</p>
+      </div>
+
+      <div class="item">
+        <label>City</label>
+        <p>{{ property.city }}</p>
+      </div>
+
+      <div class="item">
+        <label>State</label>
+        <p>{{ property.state }}</p>
+      </div>
+
+      <div class="item">
+        <label>Pincode</label>
+        <p>{{ property.pincode }}</p>
+      </div>
+
+      <div class="item">
+        <label>Ownership Type</label>
+        <p>{{ property.ownershipType }}</p>
+      </div>
+
+      <div class="item">
+        <label>Primary Use</label>
+        <p>{{ property.primaryUse }}</p>
+      </div>
+
+      <div class="item">
+        <label>Property Type</label>
+        <p>{{ property.propertyType }}</p>
+      </div>
+
+      <div class="item">
+        <label>Year Built</label>
+        <p>{{ property.yearBuilt }}</p>
+      </div>
+
+      <div class="item">
+        <label>Area In Sq Ft</label>
+        <p>{{ property.areaInSqFt }}</p>
+      </div>
+
+      <div class="item">
+        <label>Floors</label>
+        <p>{{ property.numberOfFloors }}</p>
+      </div>
+
+      <div class="item">
+        <label>Bedrooms</label>
+        <p>{{ property.bedrooms }}</p>
+      </div>
+
+      <div class="item">
+        <label>Bathrooms</label>
+        <p>{{ property.bathrooms }}</p>
+      </div>
+
+      <div class="item">
+        <label>Market Value</label>
+        <p>₹ {{ property.marketValue }}</p>
+      </div>
+
+      <div class="item">
+        <label>Construction Type</label>
+        <p>{{ property.constructionType }}</p>
+      </div>
+
+      <div class="item">
+        <label>Roof Type</label>
+        <p>{{ property.roofType }}</p>
+      </div>
+
+    </div>
+
+    <div class="button-container">
+
+      <button
+        class="calculate-btn"
+        (click)="calculateRiskAssessment()">
+
+        Calculate Risk Assessment
+
+      </button>
+
+    </div>
+
+    @if(showResult){
+
+      <div class="result-section">
+
+        <div class="score-circle">
+          {{ riskScore }}
+        </div>
+
+        <h2>{{ riskCategory }}</h2>
+
+        <button
+          class="plans-btn"
+          (click)="viewEligiblePlans()">
+
+          View Eligible Plans
+
+        </button>
+
+      </div>
+
+    }
+
+    @if(showPlans){
+
+      <div class="plans-section">
+
+        <h2>Eligible Plans</h2>
+
+        @for(plan of eligiblePlans; track plan){
+
+          <div class="plan-card">
+
+            <h3>{{ plan.name }}</h3>
+
+            <p>
+              <strong>Coverage:</strong>
+              {{ plan.coverage }}
+            </p>
+
+            <p>
+              <strong>Premium:</strong>
+              {{ plan.premium }}
+            </p>
+
+            <h4>Benefits</h4>
+
+            <ul>
+
+              @for(feature of plan.features; track feature){
+
+                <li>{{ feature }}</li>
+
+              }
+
+            </ul>
+
+            <button
+              class="select-btn"
+              (click)="selectPlan(plan)">
+
+              Select Plan
+
+            </button>
+
+          </div>
+
+        }
+
+      </div>
+
+    }
+
+@if(showPayment){
+
+<div class="payment-section">
+
+  <h2>Payment Details</h2>
+
+  <div class="payment-form">
+
+    <input
+      type="text"
+      placeholder="Card Holder Name"
+      [(ngModel)]="payment.cardHolderName">
+
+    <input
+      type="text"
+      placeholder="Card Number"
+      [(ngModel)]="payment.cardNumber">
+
+    <input
+      type="text"
+      placeholder="Expiry Date"
+      [(ngModel)]="payment.expiryDate">
+
+    <input
+      type="password"
+      placeholder="CVV"
+      [(ngModel)]="payment.cvv">
+
+  </div>
+
+</div>
+
+<div class="buy-section">
+
+  <button
+    class="buy-btn"
+    (click)="buyPolicy()">
+
+    Buy Policy
+
+  </button>
+
+</div>
+}
+  </div>
+
+</div>

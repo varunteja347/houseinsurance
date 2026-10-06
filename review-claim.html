@@ -1,0 +1,156 @@
+<app-surveyor-navbar></app-surveyor-navbar>
+
+<div class="review-page">
+
+    <div class="claim-card">
+
+        <h1>Review Claim</h1>
+
+        <div class="details-grid">
+
+            <div class="detail-box">
+
+                <label>Claim Number</label>
+
+                <p>{{ claim?.claimNumber }}</p>
+
+            </div>
+
+            <div class="detail-box">
+
+                <label>Claim Type</label>
+
+                <p>{{ claim?.claimType }}</p>
+
+            </div>
+
+            <div class="detail-box">
+
+                <label>Claim Amount</label>
+
+                <p>₹{{ claim?.claimAmount }}</p>
+
+            </div>
+
+            <div class="detail-box">
+
+                <label>Incident Date</label>
+
+                <p>{{ claim?.incidentDate }}</p>
+
+            </div>
+
+            <div class="detail-box full-width">
+
+                <label>Description</label>
+
+                <p>{{ claim?.description }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="decision-card">
+
+        <h2>Claim Decision</h2>
+
+        <div class="decision-container">
+
+            <button
+                class="approve-btn"
+                (click)="approveClaim()">
+
+                Approve Claim
+
+            </button>
+
+            <button
+                class="reject-btn"
+                (click)="rejectClaim()">
+
+                Reject Claim
+
+            </button>
+
+        </div>
+
+        @if(selectedDecision){
+
+        <div class="selected-decision">
+
+            Selected Decision:
+            <strong>{{ selectedDecision }}</strong>
+
+        </div>
+
+        }
+
+    </div>
+
+    <div class="report-action">
+
+        <button
+            class="fill-report-btn"
+            (click)="openReportForm()">
+
+            Fill Surveyor Report
+
+        </button>
+
+    </div>
+
+    @if(showReportForm){
+
+    <div class="report-card">
+
+        <h2>Surveyor Report</h2>
+
+        <div class="form-group">
+
+            <label>Damage Assessment</label>
+
+            <textarea
+                rows="4"
+                [(ngModel)]="report.damageAssessment">
+
+            </textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Estimated Loss Amount</label>
+
+            <input
+                type="number"
+                [(ngModel)]="report.estimatedLossAmount">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Surveyor Remarks</label>
+
+            <textarea
+                rows="4"
+                [(ngModel)]="report.remarks">
+
+            </textarea>
+
+        </div>
+
+        <button
+            class="submit-btn"
+            (click)="submitReport()">
+
+            Submit Survey Report
+
+        </button>
+
+    </div>
+
+    }
+
+</div>

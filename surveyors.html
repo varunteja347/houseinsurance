@@ -1,0 +1,159 @@
+<div
+    class="success-alert"
+    *ngIf="successMessage">
+
+    {{successMessage}}
+
+</div>
+
+<div class="page-header">
+
+    <h1>
+        Surveyor Management
+    </h1>
+
+    <p>
+        Review surveyor applications and approve or reject registrations.
+    </p>
+
+</div>
+
+<div class="surveyor-grid">
+
+    <div
+        class="surveyor-card"
+        *ngFor="let surveyor of surveyors">
+
+        <h2>
+
+            {{surveyor.firstName}}
+            {{surveyor.lastName}}
+
+        </h2>
+
+        <div class="detail">
+
+            <strong>Email :</strong>
+
+            {{surveyor.email}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>Phone Number :</strong>
+
+            {{surveyor.phoneNumber}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>Qualification :</strong>
+
+            {{surveyor.qualification}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>Experience :</strong>
+
+            {{surveyor.experienceYears}}
+            Years
+
+        </div>
+
+        <div class="detail">
+
+            <strong>License Number :</strong>
+
+            {{surveyor.licenseNumber}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>Address :</strong>
+
+            {{surveyor.address}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>City :</strong>
+
+            {{surveyor.city}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>State :</strong>
+
+            {{surveyor.state}}
+
+        </div>
+
+        <div class="detail">
+
+            <strong>Pincode :</strong>
+
+            {{surveyor.pincode}}
+
+        </div>
+
+        <div class="status-section">
+
+    <strong>Status :</strong>
+
+    <span *ngIf="surveyor.isApproved"
+          class="approved-status">
+
+        Approved
+
+    </span>
+
+    <span *ngIf="!surveyor.isApproved"
+          class="pending-status">
+
+        Pending Approval
+
+    </span>
+
+</div>
+
+        <div
+            class="approved-message"
+            *ngIf="surveyor.isApproved">
+
+            ✓ Surveyor Approved Successfully
+
+        </div>
+
+        <div
+            class="button-group"
+            *ngIf="!surveyor.isApproved">
+
+            <button
+                class="approve-btn"
+                (click)="approveSurveyor(surveyor.id)">
+
+                Approve
+
+            </button>
+
+            <button
+                class="reject-btn"
+                (click)="rejectSurveyor(surveyor.id)">
+
+                Reject
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

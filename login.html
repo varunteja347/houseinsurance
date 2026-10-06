@@ -1,0 +1,90 @@
+<div class="login-container">
+
+    <div class="left-panel">
+
+        <h1>Horizon Insurance</h1>
+
+        <h2>Welcome Back</h2>
+
+        <p>
+            Secure access to your House Owner Insurance portal.
+            Manage policies, claims and property information in one place.
+        </p>
+
+    </div>
+
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <h2>Login</h2>
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    [(ngModel)]="email">
+                    
+            </div>
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    [(ngModel)]="password">
+
+            </div>
+
+            <button class="login-btn"
+            (click)="login()">
+                Login
+            </button>
+<div
+    class="approval-message"
+    *ngIf="pendingApproval">
+
+    Your surveyor account is awaiting
+    administrator approval.
+
+</div>
+
+<div class="register-section">
+
+    <p class="register-text">
+
+        Don't have an account?
+
+    </p>
+
+    <div class="register-buttons">
+
+        <button
+            class="register-btn"
+            (click)="customerRegister()">
+
+            Register as Customer
+
+        </button>
+
+        <button
+            class="register-btn"
+            (click)="surveyorRegister()">
+
+            Register as Surveyor
+
+        </button>
+
+    </div>
+
+</div>
+        </div>
+
+    </div>
+
+</div>

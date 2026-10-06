@@ -1,0 +1,399 @@
+<div class="claims-page">
+
+  <div class="page-header">
+
+    <div>
+      <h1>Claims Dashboard</h1>
+      <p>Track and manage all your insurance claims</p>
+    </div>
+
+    <button
+      class="raise-btn"
+      (click)="openRaiseClaim()">
+
+      + Raise Claim
+
+    </button>
+
+  </div>
+
+  <!-- Dashboard Cards -->
+
+  <div class="dashboard-grid">
+
+    <div class="dashboard-card pending-card">
+
+      <div class="card-content">
+
+        <h2>{{ pendingClaims.length }}</h2>
+
+        <p>Pending Claims</p>
+
+      </div>
+
+    </div>
+
+    <div class="dashboard-card approved-card">
+
+      <div class="card-content">
+
+        <h2>{{ approvedClaims.length }}</h2>
+
+        <p>Approved Claims</p>
+
+      </div>
+
+    </div>
+
+    <div class="dashboard-card rejected-card">
+
+      <div class="card-content">
+
+        <h2>{{ rejectedClaims.length }}</h2>
+
+        <p>Rejected Claims</p>
+
+      </div>
+
+    </div>
+
+    <div class="dashboard-card total-card">
+
+      <div class="card-content">
+
+        <h2>{{ claims.length }}</h2>
+
+        <p>Total Claims</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Raise Claim Form -->
+
+  @if(showRaiseClaim){
+
+  <div class="claim-form-card">
+
+    <div class="form-header">
+
+      <h2>Raise New Claim</h2>
+
+      <button
+        class="close-btn"
+        (click)="closeRaiseClaim()">
+
+        Close
+
+      </button>
+
+    </div>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+
+        <label>Select Policy Number</label>
+
+        <select [(ngModel)]="claim.policyId">
+
+          <option value="">
+            Select Policy Number
+          </option>
+
+          @for(policy of activePolicies; track policy.id){
+
+          <option [value]="policy.id">
+
+            {{ policy.policyNumber }}
+
+          </option>
+
+          }
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Claim Type</label>
+
+        <select [(ngModel)]="claim.claimType">
+
+          <option value="">
+            Select Claim Type
+          </option>
+
+          <option value="Fire Damage">
+            Fire Damage
+          </option>
+
+          <option value="Flood Damage">
+            Flood Damage
+          </option>
+
+          <option value="Theft">
+            Theft
+          </option>
+
+          <option value="Natural Disaster">
+            Natural Disaster
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Claim Amount</label>
+
+        <input
+          type="number"
+          [(ngModel)]="claim.claimAmount">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Incident Date</label>
+
+        <input
+          type="date"
+          [(ngModel)]="claim.incidentDate">
+
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Description</label>
+
+      <textarea
+        rows="4"
+        [(ngModel)]="claim.description">
+
+      </textarea>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Upload Supporting Documents / Images</label>
+
+      <input
+        type="file"
+        multiple
+        (change)="onFileSelected($event)">
+
+    </div>
+
+    <button
+      class="submit-btn"
+      (click)="submitClaim()">
+
+      Submit Claim
+
+    </button>
+
+  </div>
+
+  }
+
+  <!-- Claims Table -->
+
+  <div class="claims-table-card">
+
+    <h2>All Claims</h2>
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>Claim Number</th>
+
+          <th>Claim Type</th>
+
+          <th>Claim Amount</th>
+
+          <th>Incident Date</th>
+
+          <th>Status</th>
+
+          <th>Survey Report</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for(claim of claims; track claim.id){
+
+        <tr>
+
+          <td>{{ claim.claimNumber }}</td>
+
+          <td>{{ claim.claimType }}</td>
+
+          <td>₹{{ claim.claimAmount }}</td>
+
+          <td>{{ claim.incidentDate }}</td>
+
+          <td>
+
+            @if(claim.status === 'Pending'){
+
+            <span class="status pending">
+
+              Pending
+
+            </span>
+
+            }
+
+            @if(claim.status === 'Approved'){
+
+            <span class="status approved">
+
+              Approved
+
+            </span>
+
+            }
+
+            @if(claim.status === 'Rejected'){
+
+            <span class="status rejected">
+
+              Rejected
+
+            </span>
+
+            }
+
+          </td>
+
+          <td>
+
+            @if(claim.surveyReport){
+
+            <button
+              class="report-btn"
+              (click)="viewSurveyReport(claim)">
+
+              View Report
+
+            </button>
+
+            }
+            @else{
+
+            <span class="report-na">
+
+              Not Available
+
+            </span>
+
+            }
+
+          </td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Survey Report Popup -->
+
+  @if(showReport){
+
+<div class="modal-overlay">
+
+    <div class="survey-report-card">
+
+        <div class="survey-header">
+
+            <h2>Survey Report</h2>
+
+            <button
+                class="modal-close-btn"
+                (click)="closeSurveyReport()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+        <div class="survey-grid">
+
+            <div class="survey-item">
+
+                <h4>Damage Assessment</h4>
+
+                <p>
+
+                    {{selectedClaim?.surveyReport?.damageAssessment}}
+
+                </p>
+
+            </div>
+
+            <div class="survey-item">
+
+                <h4>Estimated Loss Amount</h4>
+
+                <p>
+
+                    ₹{{selectedClaim?.surveyReport?.estimatedLossAmount}}
+
+                </p>
+
+            </div>
+
+            <div class="survey-item full-width">
+
+                <h4>Surveyor Remarks</h4>
+
+                <p>
+
+                    {{selectedClaim?.surveyReport?.remarks}}
+
+                </p>
+
+            </div>
+
+            <div class="survey-item full-width">
+
+                <h4>Decision</h4>
+
+                <span
+                    class="decision-chip"
+                    [class.approved-chip]="selectedClaim?.surveyReport?.decision === 'Approve' || selectedClaim?.surveyReport?.decision === 'Approved'"
+                    [class.rejected-chip]="selectedClaim?.surveyReport?.decision === 'Reject' || selectedClaim?.surveyReport?.decision === 'Rejected'">
+
+                    {{selectedClaim?.surveyReport?.decision}}
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+}
